@@ -45,8 +45,8 @@ class timedelta_t( ct.Structure ):
 
 class gps_log_t( ct.Structure ):
   _fields_ = [ ( "lon",           ct.c_double     ),
-               ( "lat",           ct.c_int        ),
-               ( "altHAE",        ct.c_int        ),
+               ( "lat",           ct.c_double     ),
+               ( "altHAE",        ct.c_double     ),
                ( "altMSL",        ct.c_double     ),          
                ( "gSpeed",        ct.c_double     ),
                ( "heading",       ct.c_double     ),
@@ -133,12 +133,12 @@ class devconfig_t( ct.Structure ):
                ( "subtype",     ct.c_char * 128          ),
                ( "subtype1",    ct.c_char * 128          ),
                ( "hexdata",     ct.c_char * HEXDATA_MAX  ),
-               ( "activated",   ct.c_double              ),
+               ( "activated",   timespec_t               ),
                ( "baudrate",    ct.c_uint                ),
                ( "stopbits",    ct.c_uint                ),
                ( "parity",      ct.c_char                ),
-               ( "cycle",       ct.c_double              ),
-               ( "minicycle",   ct.c_double              ),
+               ( "cycle",       timespec_t               ),
+               ( "minicycle",   timespec_t               ),
                ( "driver_mode", ct.c_int                 ) ]
 
 class gps_policy_t( ct.Structure ):
@@ -162,13 +162,13 @@ class devices_t( ct.Structure ):
 class gps_data_t( ct.Structure ):
   _fields_ = [ ( "set",                gps_mask_t                ),
                ( "online",             timespec_t                ), 
-               ( "gps_fd",             ct.c_void_p               ),
+               ( "gps_fd",             ct.c_int                  ),
                ( "fix",                gps_fix_t                 ),
                ( "log",                gps_log_t                 ),
                ( "leap_seconds",       ct.c_int                  ),
                ( "satellites_used",    ct.c_int                  ),
                ( "dop",                dop_t                     ),
-               ( "epe",                ct.c_double               ),
+               #( "epe",                ct.c_double               ),
                ( "skyview_time",       timespec_t                ),
                ( "satellites_visible", ct.c_int                  ),
                ( "skyview",            satellite_t * MAXCHANNELS ),
