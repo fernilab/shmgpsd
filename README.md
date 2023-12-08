@@ -1,14 +1,24 @@
-# shmgpsd
+# ShmGpsD: Shared Memory GPSD Reader
 
-Get gpsd data via shared memory. You need to compile gpsd with shm and shared library support. More on that below.
+ShmGpsD reads GPS data from shared memory-enabled GPSD instances, designed for seamless integration with InfluxDB via Telegraf exec inputs (JSON). Ideal for real-time updates and effortless communication with GPSD.
 
-## Compiling gpsd with shared memory and shared library support
+## Key Features:
+
+- Read GPS data efficiently from shared memory
+- Perfect for integrating GPS data into InfluxDB via Telegraf
+- Streamlined solution for applications requiring precise GPS information
+
+Elevate your applications with ShmGpsD – simplicity meets accuracy.
+
+## Compiling gpsd: Optional (Only if OS distro lacks shared memory support)
+
 ```
 git clone git://git.savannah.nongnu.org/gpsd.git # or https://gitlab.com/gpsd/gpsd.git
 git checkout release-3.18
 scons timeservice=yes magic_hat=yes nmea0183=yes ublox=yes mtk3301=yes fixed_port_speed=115200 fixed_stop_bits=1 shm_export=yes shared=yes
 sudo scons install
 ```
+
 ## Usage
 ```Python 3.5.3 (default, Sep 27 2018, 17:25:39)
 [GCC 6.3.0 20170516] on linux
