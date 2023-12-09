@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel", "pep517"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shmgpsd"
+version = "0.3.1"
+description = "GPSD shared memory tool"
+readme = "README.md"
+
+authors = [
+  {name = "Fernilab", email = "support@fernilab.com"}
+]
+maintainers = [
+  {name = "Fernilab", email = "support@fernilab.com"}
+]
+
+[project.urls]
+Homepage = "https://fernilab.com"
+Repository = "https://github.com/fernilab/shmgpsd.git"
