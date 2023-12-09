@@ -20,31 +20,27 @@ sudo scons install
 ```
 
 ## Usage
-```Python 3.5.3 (default, Sep 27 2018, 17:25:39)
-[GCC 6.3.0 20170516] on linux
-Type "help", "copyright", "credits" or "license" for more information.
 >>> import shmgpsd
 >>> mygps = shmgpsd.SHM()
->>> mygps.satellites_visible
-12
->>> mygps.satellites_used
-9
 >>> for i in range(0, shmgpsd.MAXCHANNELS):
-...   if mygps.skyview[i].PRN != 0:
-...     print("PRN: {0}, SNR: {1}, USED: {2}".format(mygps.skyview[i].PRN,
-...                                                  mygps.skyview[i].ss,
-...                                                  mygps.skyview[i].used))
+...     if mygps.skyview[i].PRN != 0:
+...         print(f"PRN: {mygps.skyview[i].PRN:4}, " \
+...               f"SNR: {mygps.skyview[i].ss:4}, "  \
+...               f"USED: {mygps.skyview[i].used:4}"  )
 ...
-PRN: 16, SNR: 49.0, USED: True
-PRN: 26, SNR: 34.0, USED: True
-PRN: 23, SNR: 27.0, USED: True
-PRN: 3, SNR: 47.0, USED: True
-PRN: 31, SNR: 38.0, USED: True
-PRN: 22, SNR: 49.0, USED: True
-PRN: 48, SNR: 42.0, USED: False
-PRN: 9, SNR: 40.0, USED: True
-PRN: 14, SNR: 34.0, USED: True
-PRN: 27, SNR: 39.0, USED: True
-PRN: 29, SNR: 35.0, USED: True
-PRN: 7, SNR: 27.0, USED: True
+PRN:   19, SNR: 18.0, USED:    1
+PRN:   22, SNR: 28.0, USED:    1
+PRN:   17, SNR: 21.0, USED:    1
+PRN:    6, SNR: 31.0, USED:    1
+PRN:   14, SNR: 33.0, USED:    1
+PRN:   24, SNR: 17.0, USED:    1
+PRN:    3, SNR: 15.0, USED:    1
+PRN:   46, SNR: 29.0, USED:    0
+PRN:   11, SNR: 24.0, USED:    1
+PRN:   12, SNR: 20.0, USED:    0
+PRN:   30, SNR:  0.0, USED:    0
+>>> print(f"Satellites visible: {mygps.satellites_visible:2}")
+Satellites visible: 11
+>>> print(f"Satellites used:    {mygps.satellites_used:2}")
+Satellites used:     8
 ```

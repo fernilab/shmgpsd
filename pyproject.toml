@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shmgpsd"
-version = "0.3.3"
+version = "0.3.4"
 description = "GPSD shared memory tool"
 readme = "README.md"
 
