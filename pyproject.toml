@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools", "wheel", "pep517"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "shmgpsd"
-version = "0.3.1"
+version = "0.3.3"
 description = "GPSD shared memory tool"
 readme = "README.md"
 
